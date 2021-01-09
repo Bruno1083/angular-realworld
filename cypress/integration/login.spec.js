@@ -5,4 +5,10 @@ describe('Conduit Loguin', () => {
 		cy.get('.btn:nth-child(5)').click()
 		cy.url().should('contain', '/settings')
     })
+    it('Dados inválidos', () => {
+        cy.login('cavalcante@gmail.com', '1237895145')
+        cy.get('.error-messages > li')
+        .should('contain', 'email or password is invalid')
+    })
+    
 })
